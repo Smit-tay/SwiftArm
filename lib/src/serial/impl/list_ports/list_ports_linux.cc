@@ -56,7 +56,7 @@ glob(const vector<string>& patterns)
 
     int glob_retval = glob(patterns[0].c_str(), 0, NULL, &glob_results);
     if (glob_retval != 0) {
-        throw std::runtime_error("glob failed");
+        std::cerr << "Error: glob() failed with error code " << glob_retval << std::endl;
     }
 
     vector<string>::const_iterator iter = patterns.begin();
@@ -65,7 +65,7 @@ glob(const vector<string>& patterns)
     {
         glob_retval = glob(iter->c_str(), GLOB_APPEND, NULL, &glob_results);
         if (glob_retval != 0) {
-            throw std::runtime_error("glob failed");
+            std::cerr << "Error: glob() failed with error code " << glob_retval << std::endl;
         }
 
     }
