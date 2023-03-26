@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh '''
-                   ctest -l test_aurm /dev/switfpro all
+                   ctest -l test_uarm /dev/swiftpro all
                    '''
             }
         }
