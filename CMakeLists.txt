@@ -40,8 +40,7 @@ add_compile_options(${CMAKE_THREAD_LIBS_INIT})
 
 add_test(
     NAME test_uarm
-    COMMAND test_uarm /dev/swiftpro all
-    COMMAND ls -l
+    COMMAND ls -l && test_uarm /dev/swiftpro all
 )
 #get_cmake_property(_variableNames VARIABLES)
 #list (SORT _variableNames)
