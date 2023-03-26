@@ -40,7 +40,7 @@ add_compile_options(${CMAKE_THREAD_LIBS_INIT})
 
 enable_testing()
 add_test(
-    NAME test_uarm
+    NAME test
     COMMAND test_uarm /dev/swiftpro all
 )
 #get_cmake_property(_variableNames VARIABLES)
