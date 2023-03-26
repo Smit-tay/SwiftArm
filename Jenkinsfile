@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh '''
-                   make test
+                   ctest -l test_aurm /dev/switfpro all
                    '''
             }
         }
