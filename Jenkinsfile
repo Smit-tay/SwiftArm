@@ -29,6 +29,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh '''
+                   cd build
                    make test_all
                    '''
             }
