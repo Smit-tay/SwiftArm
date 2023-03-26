@@ -31,14 +31,17 @@ set_target_properties(test_uarm PROPERTIES COMPILE_FLAGS "-fPIC -std=c++11")
 target_include_directories(test_uarm  PUBLIC
   "${CMAKE_CURRENT_SOURCE_DIR}/lib/include" )
 target_link_libraries(test_uarm uarm)
-
+add_dependencies(test_uarm uarm)
 
 include(FindThreads)
 find_package( Threads REQUIRED )
 link_libraries(Threads::Threads)
 add_compile_options(${CMAKE_THREAD_LIBS_INIT})
 
-
+add_test(
+    NAME test_uarm
+    COMMAND test_uarm /dev/swiftpro all
+)
 #get_cmake_property(_variableNames VARIABLES)
 #list (SORT _variableNames)
 #foreach (_variableName ${_variableNames})

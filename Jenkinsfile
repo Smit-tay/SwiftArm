@@ -30,7 +30,7 @@ pipeline {
                 echo 'Testing..'
                 sh '''
                    cd build
-                   make test
+                   ctest -V
                    '''
             }
         }
