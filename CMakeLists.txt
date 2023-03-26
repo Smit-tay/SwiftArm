@@ -40,9 +40,11 @@ add_compile_options(${CMAKE_THREAD_LIBS_INIT})
 
 enable_testing()
 add_test(
-    NAME test
+    NAME test_uarm
     COMMAND test_uarm /dev/swiftpro all
 )
+add_dependencies(test test_uarm)
+
 #get_cmake_property(_variableNames VARIABLES)
 #list (SORT _variableNames)
 #foreach (_variableName ${_variableNames})
