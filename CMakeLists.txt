@@ -43,8 +43,10 @@ add_test(
     NAME test_uarm
     COMMAND test_uarm /dev/swiftpro all
 )
-add_dependencies(test test_uarm)
 
+add_custom_target(test
+                  COMMAND ${CMAKE_CTEST_COMMAND} -V
+                  DEPENDS test_uarm)
 #get_cmake_property(_variableNames VARIABLES)
 #list (SORT _variableNames)
 #foreach (_variableName ${_variableNames})
