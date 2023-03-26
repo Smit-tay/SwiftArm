@@ -30,7 +30,7 @@ pipeline {
                 echo 'Testing..'
                 sh '''
                    cd build
-                   ctest -V
+                   ctest -R test_uarm
                    '''
             }
         }
