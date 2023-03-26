@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh '''
-                   make test
+                   make test_all
                    '''
             }
         }
