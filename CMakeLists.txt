@@ -38,9 +38,10 @@ find_package( Threads REQUIRED )
 link_libraries(Threads::Threads)
 add_compile_options(${CMAKE_THREAD_LIBS_INIT})
 
+enable_testing()
 add_test(
     NAME test_uarm
-    COMMAND ls -l && test_uarm /dev/swiftpro all
+    COMMAND test_uarm /dev/swiftpro all
 )
 #get_cmake_property(_variableNames VARIABLES)
 #list (SORT _variableNames)
