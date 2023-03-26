@@ -30,6 +30,8 @@ pipeline {
                 echo 'Testing..'
                 sh '''
                    cd build
+                   pwd
+                   ls -l
                    ctest -R test_uarm
                    '''
             }
