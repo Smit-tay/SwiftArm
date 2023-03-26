@@ -454,6 +454,9 @@ int main(int argc, char **argv) {
     test_move(&swift);
 	sleep_milliseconds(2000);
 
+	range_motion_test(&swift);
+	sleep_milliseconds(2000);
+
 //	test_send_cmd(&swift);
 //    sleep_milliseconds(2000);
 
