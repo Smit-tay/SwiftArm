@@ -405,7 +405,7 @@ void range_motion_test(Swift *swift) {
         int y = j * 20;
         int z = k * 20;
         //ret = swift->set_position(x, y, z, 20000, false, false, 0, async_callback);
-        ret = swift->set_position(x, y, z, 20000, false, false, 0, NULL);
+        ret = swift->set_position(x, y, z, 20000, true, true, 0, NULL);
         cout << "set_position: " << ret << ", x: " << x << ", y: " << y << ", z: " << z << endl;
         sleep_milliseconds(5000);
       }
