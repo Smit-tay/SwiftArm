@@ -397,24 +397,27 @@ void range_motion_test(Swift *swift) {
   ret = swift->set_report_keys(true);
   cout << "set_report_keys: " << ret << endl;
 
-  // Move the arm through a range of positions
-  for (int i = 0; i <= 10; i++) {
-    for (int j = 0; j <= 10; j++) {
-      for (int k = 0; k <= 10; k++) {
-        int x = i * 20;
-        int y = j * 20;
-        int z = k * 20;
-        //ret = swift->set_position(x, y, z, 20000, false, false, 0, async_callback);
-        ret = swift->set_position(x, y, z, 10000, true, true, 5, NULL);
-        while (swift->get_is_moving()) {
-            sleep_milliseconds(100);
-        }
-        cout << "set_position: " << ret << ", x: " << x << ", y: " << y << ", z: " << z << endl;
-        //sleep_milliseconds(5000);
+  // Determine maximum and minimum angles for each axis
+  vector<float> x_min = swift->get_servo_angle(1);
+  vector<float> x_max = swift->get_servo_angle(2);
+  vector<float> y_min = swift->get_servo_angle(3);
+  vector<float> y_max = swift->get_servo_angle(4);
+  vector<float> z_min = swift->get_servo_angle(5);
+  vector<float> z_max = swift->get_servo_angle(6);
+
+  // Move the arm through all possible positions
+  for (int x = x_min[0]; x <= x_max[0]; x++) {
+    for (int y = y_min[0]; y <= y_max[0]; y++) {
+      for (int z = z_min[0]; z <= z_max[0]; z++) {
+        ret = swift->set_servo_angle(1, x, true, true);
+        ret = swift->set_servo_angle(2, y, true, true);
+        ret = swift->set_servo_angle(3, z, true, true);
+        cout << "set_servo_angle: " << ret << ", x: " << x << ", y: " << y << ", z: " << z << endl;
       }
     }
   }
 }
+
 
 
 int main(int argc, char **argv) {
